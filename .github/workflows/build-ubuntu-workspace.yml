@@ -24,6 +24,6 @@ jobs:
       - name: Build and push Docker image for ubuntu-workspace
         uses: docker/build-push-action@v4
         with:
-          context: ./workspaces/ubuntu-workspace
+          context: ./ubuntu-workspace
           push: true
           tags: jianhonglee783/ubuntu-workspace:24.04
