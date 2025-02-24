@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CONTAINER_NAME="workspace"
-IMAGE_NAME="ubuntu-workspace:24.04"
+IMAGE_NAME="jianhonglee783/ubuntu-workspace:24.04"
 
 case "$1" in
     start)
