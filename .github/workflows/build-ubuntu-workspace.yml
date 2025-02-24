@@ -1,0 +1,29 @@
+name: Build and Push Ubuntu Workspace Image
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'ubuntu-workspace/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Docker Login
+        uses: docker/login-action@v3.3.0
+        with:
+          username: jianhonglee783
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and push Docker image for ubuntu-workspace
+        uses: docker/build-push-action@v4
+        with:
+          context: ./workspaces/ubuntu-workspace
+          push: true
+          tags: jianhonglee783/ubuntu-workspace:24.04
